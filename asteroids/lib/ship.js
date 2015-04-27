@@ -23,4 +23,17 @@
     this.vel = [0,0];
   };
 
+  Ship.prototype.power = function(impulse) {
+    if (Math.abs(this.vel[0] + impulse[0]) <= 5 ) {
+      this.vel[0] += impulse[0];
+    }
+    if (Math.abs(this.vel[1] + impulse[1]) <= 5 ) {
+      this.vel[1] += impulse[1];
+    }
+  };
+
+  Ship.prototype.velNorm = function() {
+    return
+  };
+
 })();

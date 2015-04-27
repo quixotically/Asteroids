@@ -1,3 +1,4 @@
+
 ;(function () {
   if (typeof Asteroids === 'undefined') {
     window.Asteroids = {};
@@ -6,7 +7,7 @@
   var Game = Asteroids.Game = function () {
     this.DIM_X = 750;
     this.DIM_Y = 750;
-    this.NUM_ASTEROIDS = 50;
+    this.NUM_ASTEROIDS = 0;
     this.asteroids = [];
     this.addAsteroids();
     this.ship = new Asteroids.Ship(this.randomPosition(), this);
