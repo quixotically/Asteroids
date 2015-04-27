@@ -31,7 +31,13 @@
       if (obj instanceof Asteroids.Ship) {
         obj.relocate();
       }
+
+      if (obj instanceof Asteroids.Bullet) {
+        return true;
+      } 
     }
+
+    return false;
   };
 
 })();

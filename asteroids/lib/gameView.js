@@ -23,6 +23,7 @@
     key('a', function() { game.ship.power([-1,0]) });
     key('s', function() { game.ship.power([0,1]) });
     key('d', function() { game.ship.power([1,0]) });
+    key('space', function() { game.ship.fireBullet(); });
   };
 
   GameView.prototype.binding2 = function() {

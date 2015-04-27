@@ -7,10 +7,11 @@
   var Game = Asteroids.Game = function () {
     this.DIM_X = 750;
     this.DIM_Y = 750;
-    this.NUM_ASTEROIDS = 0;
+    this.NUM_ASTEROIDS = 2;
     this.asteroids = [];
     this.addAsteroids();
     this.ship = new Asteroids.Ship(this.randomPosition(), this);
+    this.bullets = [];
   };
 
   Game.prototype.addAsteroids = function() {
@@ -21,7 +22,7 @@
   };
 
   Game.prototype.allObjects = function() {
-    return this.asteroids.concat(this.ship);
+    return this.asteroids.concat(this.bullets).concat(this.ship);
   };
 
   Game.prototype.randomPosition = function() {
@@ -56,8 +57,14 @@
   };
 
   Game.prototype.remove = function (obj) {
-    var idx = this.asteroids.indexOf(obj);
-    this.asteroids.splice(idx, 1);
+    if (obj instanceof Asteroids.Asteroid) {
+      var idx = this.asteroids.indexOf(obj);
+      this.asteroids.splice(idx, 1);
+    }
+    else if (obj instanceof Asteroids.Bullet) {
+      var idx = this.bullets.indexOf(obj);
+      this.bullets.splice(idx, 1);
+    }
   };
 
   Game.prototype.step = function () {

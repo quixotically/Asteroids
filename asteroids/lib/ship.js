@@ -36,4 +36,9 @@
     return
   };
 
+  Ship.prototype.fireBullet = function() {
+    var bullet = new Asteroids.Bullet(this.pos, this.vel, this.game);
+    this.game.bullets.push(bullet);
+  };
+
 })();
