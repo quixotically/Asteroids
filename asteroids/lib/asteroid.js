@@ -3,15 +3,14 @@
     window.Asteroids = {};
   }
 
-
-
-  var Asteroid = Asteroids.Asteroid = function(pos) {
+  var Asteroid = Asteroids.Asteroid = function(pos, game) {
     Asteroids.MovingObject.call(
       this,
       pos,
       Asteroid.randomVector(),
       RADIUS,
-      COLOR
+      COLOR,
+      game
     );
   };
 

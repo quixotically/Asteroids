@@ -6,14 +6,14 @@
   var Game = Asteroids.Game = function () {
     this.DIM_X = 750;
     this.DIM_Y = 750;
-    this.NUM_ASTEROIDS = 40;
+    this.NUM_ASTEROIDS = 4;
     this.asteroids = [];
     this.addAsteroids();
   };
 
   Game.prototype.addAsteroids = function() {
     for(var i = 0; i < this.NUM_ASTEROIDS; i++) {
-      var a = new Asteroids.Asteroid(this.randomPosition());
+      var a = new Asteroids.Asteroid(this.randomPosition(), this);
       this.asteroids.push(a);
     }
   };
@@ -35,6 +35,28 @@
     this.asteroids.forEach(function (a) {
       a.move();
     });
+  };
+
+  Game.prototype.wrap = function (pos) {
+    var x = pos[0];
+    var y = pos[1];
+
+    if (x > this.DIM_X) {
+      x -= this.DIM_X;
+    }
+    else if (x < 0) {
+      x += this.DIM_X;
+    }
+
+    if (y > this.DIM_Y) {
+      y -= this.DIM_Y;
+    }
+
+    else if (y < 0) {
+      y += this.DIM_Y;
+    }
+
+    return [x, y];
   };
 
 })();
