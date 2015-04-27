@@ -20,7 +20,7 @@ var curriedSum = function (numArgs) {
   var args = [];
 
   var _curriedSum = function (num) {
-    args = args.push(num);
+    args.push(num);
 
     if (args.length < numArgs) {
       return _curriedSum;
@@ -38,7 +38,7 @@ Function.prototype.curry = function(numArgs) {
 
   var _curry = function(arg) {
     args.push(arg);
-    
+
     if (args.length < numArgs) {
       return _curry.bind(this);
     } else {
