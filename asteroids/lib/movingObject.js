@@ -33,4 +33,18 @@
 
     this.pos = this.game.wrap(this.pos);
   };
+
+  MovingObject.prototype.distanceFrom = function(obj) {
+    var dx = obj.pos[0] - this.pos[0];
+    var dy = obj.pos[1] - this.pos[1];
+    return Math.sqrt(dx*dx + dy*dy);
+  };
+
+  MovingObject.prototype.isCollidedWith = function(obj) {
+    if (this.radius + obj.radius > this.distanceFrom(obj)) {
+      alert("COLLISION");
+    }
+  };
+
+
 })();

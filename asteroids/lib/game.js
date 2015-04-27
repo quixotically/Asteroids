@@ -37,6 +37,19 @@
     });
   };
 
+  Game.prototype.checkCollisions = function () {
+    for(var i = 0; i < this.asteroids.length; i++) {
+      for(var j = i + 1; j < this.asteroids.length; j++) {
+        this.asteroids[i].isCollidedWith(this.asteroids[j]);
+      }
+    }
+  };
+
+  Game.prototype.step = function () {
+    this.moveObjects();
+    this.checkCollisions();
+  };
+
   Game.prototype.wrap = function (pos) {
     var x = pos[0];
     var y = pos[1];

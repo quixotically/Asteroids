@@ -10,7 +10,7 @@
 
   GameView.prototype.start = function () {
     var nextGameState = function() {
-      this.game.moveObjects();
+      this.game.step();
       this.game.draw(this.ctx);
     };
 
