@@ -41,9 +41,7 @@
   };
 
   MovingObject.prototype.isCollidedWith = function(obj) {
-    if (this.radius + obj.radius > this.distanceFrom(obj)) {
-      alert("COLLISION");
-    }
+    return this.radius + obj.radius >= this.distanceFrom(obj);
   };
 
 

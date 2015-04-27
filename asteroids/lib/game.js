@@ -6,7 +6,7 @@
   var Game = Asteroids.Game = function () {
     this.DIM_X = 750;
     this.DIM_Y = 750;
-    this.NUM_ASTEROIDS = 4;
+    this.NUM_ASTEROIDS = 500;
     this.asteroids = [];
     this.addAsteroids();
   };
@@ -40,9 +40,17 @@
   Game.prototype.checkCollisions = function () {
     for(var i = 0; i < this.asteroids.length; i++) {
       for(var j = i + 1; j < this.asteroids.length; j++) {
-        this.asteroids[i].isCollidedWith(this.asteroids[j]);
+        if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
+          this.remove(this.asteroids[i]);
+          this.remove(this.asteroids[j]);
+        }
       }
     }
+  };
+
+  Game.prototype.remove = function (obj) {
+    var idx = this.asteroids.indexOf(obj);
+    this.asteroids.splice(idx, 1);
   };
 
   Game.prototype.step = function () {

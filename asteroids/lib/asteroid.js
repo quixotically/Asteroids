@@ -29,7 +29,7 @@
     return color;
   };
   var COLOR = Asteroid.randomColor();
-  var RADIUS = 50;
+  var RADIUS = 10;
 
   Asteroid.randomVector = function() {
     var xVec = (Math.floor(Math.random() * RADIUS) - RADIUS/2);
