@@ -6,9 +6,10 @@
   var Game = Asteroids.Game = function () {
     this.DIM_X = 750;
     this.DIM_Y = 750;
-    this.NUM_ASTEROIDS = 500;
+    this.NUM_ASTEROIDS = 50;
     this.asteroids = [];
     this.addAsteroids();
+    this.ship = new Asteroids.Ship(this.randomPosition(), this);
   };
 
   Game.prototype.addAsteroids = function() {
@@ -16,6 +17,10 @@
       var a = new Asteroids.Asteroid(this.randomPosition(), this);
       this.asteroids.push(a);
     }
+  };
+
+  Game.prototype.allObjects = function() {
+    return this.asteroids.concat(this.ship);
   };
 
   Game.prototype.randomPosition = function() {
@@ -26,23 +31,24 @@
   Game.prototype.draw = function (ctx) {
     ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
 
-    this.asteroids.forEach(function (a) {
+    this.allObjects().forEach(function (a) {
       a.draw(ctx);
     });
   };
 
   Game.prototype.moveObjects = function () {
-    this.asteroids.forEach(function (a) {
+    this.allObjects().forEach(function (a) {
       a.move();
     });
   };
 
   Game.prototype.checkCollisions = function () {
+    var allObjs = this.allObjects();
     for(var i = 0; i < this.asteroids.length; i++) {
-      for(var j = i + 1; j < this.asteroids.length; j++) {
-        if (this.asteroids[i].isCollidedWith(this.asteroids[j])) {
+      for(var j = i + 1; j < allObjs.length; j++) {
+        if (this.asteroids[i].isCollidedWith(allObjs[j])) {
           this.remove(this.asteroids[i]);
-          this.remove(this.asteroids[j]);
+          this.remove(this.allObjs[j]);
         }
       }
     }
