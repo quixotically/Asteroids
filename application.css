@@ -50,7 +50,7 @@ h3 {
 }
 
 button {
-  padding: 2px;
+  padding: 5px;
   margin: 2px;
   font-size: 24px;
   border: 1px solid #fff;
@@ -79,12 +79,12 @@ button {
   padding: 5px;
 }
 
-.start {
-  background: #00EC0E;
+.start, .restart {
+  background: #008F12;
 }
 
-.start:hover {
-  background: #008F12;
+.start:hover, .restart:hover {
+  background: #00610E;
 }
 
 .hidden {

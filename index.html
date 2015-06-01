@@ -35,7 +35,7 @@
     </section>
     <section class="game-over-screen hidden">
       <h1 class="score-header">Your score was: </h1>
-      <button class="start">Play Again</button>
+      <button class="restart">Play Again</button>
     </section>
     <script>
       var canvasEl = document.getElementsByTagName("canvas")[0];
@@ -45,9 +45,18 @@
       var ctx = canvasEl.getContext("2d");
       $('.start').on('click', function (event) {
         event.preventDefault();
-        console.log("hello!");
         $(".start-screen").addClass("hidden");
-        new Asteroids.GameView(game, ctx).start();
+        Asteroids.currentGame = new Asteroids.GameView(game, ctx);
+        Asteroids.currentGame.start();
+      });
+      $('.restart').on('click', function (event) {
+        event.preventDefault();
+        game = new Asteroids.Game();
+        delete Asteroids.currentGame.game;
+        delete Asteroids.currentGame;
+        $(".game-over-screen").addClass("hidden");
+        Asteroids.currentGame = new Asteroids.GameView(game, ctx);
+        Asteroids.currentGame.start();
       });
     </script>
   </body>
