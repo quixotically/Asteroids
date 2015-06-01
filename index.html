@@ -43,20 +43,22 @@
       $("#game-canvas").attr("width", Asteroids.DIM_X);
       $("#game-canvas").attr("height", Asteroids.DIM_Y);
       var ctx = canvasEl.getContext("2d");
+
       $('.start').on('click', function (event) {
         event.preventDefault();
         $(".start-screen").addClass("hidden");
-        Asteroids.currentGame = new Asteroids.GameView(game, ctx);
-        Asteroids.currentGame.start();
+        Asteroids.currentGameView = new Asteroids.GameView(game, ctx);
+        Asteroids.currentGameView.start();
       });
+
       $('.restart').on('click', function (event) {
         event.preventDefault();
-        game = new Asteroids.Game();
-        delete Asteroids.currentGame.game;
-        delete Asteroids.currentGame;
+        window.clearInterval(Asteroids.currentGameView.interval)
+        delete Asteroids.currentGameView;
         $(".game-over-screen").addClass("hidden");
-        Asteroids.currentGame = new Asteroids.GameView(game, ctx);
-        Asteroids.currentGame.start();
+        game = new Asteroids.Game();
+        Asteroids.currentGameView = new Asteroids.GameView(game, ctx);
+        Asteroids.currentGameView.start();
       });
     </script>
   </body>
