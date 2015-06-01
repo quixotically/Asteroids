@@ -34,7 +34,8 @@
       <button class="start">Play</button>
     </section>
     <section class="game-over-screen hidden">
-      <h1 class="score-header">Your score was: </h1>
+      <h1 class="score1">P1 score was: </h1>
+      <h1 class="score2">P2 score was: </h1>
       <button class="restart">Play Again</button>
     </section>
     <script>
@@ -53,7 +54,6 @@
 
       $('.restart').on('click', function (event) {
         event.preventDefault();
-        window.clearInterval(Asteroids.currentGameView.interval)
         delete Asteroids.currentGameView;
         $(".game-over-screen").addClass("hidden");
         game = new Asteroids.Game();
