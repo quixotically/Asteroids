@@ -15,19 +15,6 @@
     <script src="lib/keymaster.js"></script>
     <script src="lib/bullet.js"></script>
     <script src="lib/stardust.js"></script>
-    <script>
-      var canvasEl = document.getElementsByTagName("canvas")[0];
-      var game = new Asteroids.Game();
-      $("#game-canvas").attr("width", Asteroids.DIM_X);
-      $("#game-canvas").attr("height", Asteroids.DIM_Y);
-      var ctx = canvasEl.getContext("2d");
-      $('.start').on('click', function (event) {
-        //console.log("hello!");
-        event.preventDefault();
-        $(".start-screen").addClass("hidden");
-        new Asteroids.GameView(game, ctx).start();
-      });
-    </script>
     <section class="start-screen">
       <h1>Asteroids 2P</h1>
       <h3>P1 Controls:</h3>
@@ -50,5 +37,18 @@
       <h1 class="score-header">Your score was: </h1>
       <button class="start">Play Again</button>
     </section>
+    <script>
+      var canvasEl = document.getElementsByTagName("canvas")[0];
+      var game = new Asteroids.Game();
+      $("#game-canvas").attr("width", Asteroids.DIM_X);
+      $("#game-canvas").attr("height", Asteroids.DIM_Y);
+      var ctx = canvasEl.getContext("2d");
+      $('.start').on('click', function (event) {
+        event.preventDefault();
+        console.log("hello!");
+        $(".start-screen").addClass("hidden");
+        new Asteroids.GameView(game, ctx).start();
+      });
+    </script>
   </body>
 </html>
