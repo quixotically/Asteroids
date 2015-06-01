@@ -1,6 +1,8 @@
 <html>
   <head>
     <title>Asteroids 2P</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="application.css" rel="stylesheet"/>
   </head>
   <body>
     <canvas id="game-canvas" width="750" height="750"></canvas>
@@ -41,8 +43,8 @@
       </ul>
       <button class="start">Play</button>
     </section>
-    <section class="game-over-screen">
-      <h1>Your score was: <%= Asteroids.score %></h1>
+    <section class="game-over-screen hidden">
+      <h1 class="score-header">Your score was: </h1>
       <button class="start">Play Again</button>
     </section>
   </body>
