@@ -19,14 +19,14 @@ main, img, h1, h2, h3, p, strong, a, div, span, footer {
 /*defaults*/
 
 canvas {
-  border: 5px solid pink;
+
 }
 
 body {
   font-family: sans-serif;
   background: #000;
   color: #fff;
-  border: 5px solid red;
+  overflow: hidden;
 }
 
 ul {
