@@ -68,7 +68,7 @@ button {
   padding: 20px;
   border: 1px solid #fff;
   position: absolute;
-  top: 100px;
+  top: 25%;
   left: 50%;
   z-index: 3;
   transform: translateX(-50%);

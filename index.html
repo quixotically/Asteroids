@@ -3,6 +3,7 @@
     <title>Asteroids 2P</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link href="application.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <canvas id="game-canvas"></canvas>
@@ -15,6 +16,7 @@
     <script src="lib/keymaster.js"></script>
     <script src="lib/bullet.js"></script>
     <script src="lib/stardust.js"></script>
+
     <section class="start-screen">
       <h1>Asteroids 2P</h1>
       <h3>P1 Controls:</h3>
@@ -33,11 +35,13 @@
       </ul>
       <button class="start">Play</button>
     </section>
+
     <section class="game-over-screen hidden">
-      <h1 class="score1">P1 score was: </h1>
-      <h1 class="score2">P2 score was: </h1>
+      <h1 class="score1"></h1>
+      <h1 class="score2"></h1>
       <button class="restart">Play Again</button>
     </section>
+
     <script>
       var canvasEl = document.getElementsByTagName("canvas")[0];
       var game = new Asteroids.Game();
